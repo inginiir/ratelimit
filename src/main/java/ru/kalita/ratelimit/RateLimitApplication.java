@@ -9,5 +9,4 @@ public class RateLimitApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RateLimitApplication.class, args);
 	}
-
 }
