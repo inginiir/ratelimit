@@ -25,7 +25,7 @@ public enum RefillStrategy {
         return Arrays.stream(RefillStrategy.values())
                 .filter(refillStrategy -> refillStrategy.name().equals(refillType))
                 .findFirst()
-                .orElse(GREED);
+                .orElseThrow(() -> new IllegalArgumentException("Введен неподдерживаемый алгоритм: " + refillType));
     }
 
     public abstract Bandwidth getBandwidth(long limitRate, Duration period);

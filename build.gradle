@@ -1,23 +1,28 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.0.2'
-	id 'io.spring.dependency-management' version '1.1.0'
+    id 'java'
+    id 'org.springframework.boot' version '2.7.8'
+    id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group = 'ru.kalita'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+project.sourceCompatibility = '11'
+project.targetCompatibility = '11'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation group: 'com.github.vladimir-bukhtoyarov', name: 'bucket4j-core', version: '7.5.0'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation group: 'com.github.vladimir-bukhtoyarov', name: 'bucket4j-core', version: '7.5.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+springBoot {
+    mainClass = 'ru.kalita.ratelimit.RateLimitApplication'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

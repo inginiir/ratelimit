@@ -25,8 +25,8 @@
 <li>rate.period - интервал</li>
 <li>rate.timeunit - единица времени интервала:</li> 
 <p>SECONDS
-<p>MINUTES(Default)
+<p>MINUTES
 <p>HOURS
 <li>rate.refill - стратегия обновлени интервала:</li> 
-<p>GREEDY(Default): 1 токен будет добавляться каждые period/limit минут
+<p>GREEDY: 1 токен будет добавляться каждые period/limit минут
 <p>INTERVAL: каждый period будет добавляться limit токенов

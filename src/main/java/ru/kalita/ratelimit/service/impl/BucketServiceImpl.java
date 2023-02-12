@@ -33,7 +33,7 @@ public class BucketServiceImpl implements BucketService {
 
     private Bucket newBucket() {
         RefillStrategy refillStrategy = RefillStrategy.parseStrategy(refillType);
-        TimeUnit timeUnit = TimeUnit.parseStrategy(timeunit);
+        TimeUnit timeUnit = TimeUnit.parseTimeUnit(timeunit);
         Duration duration = timeUnit.getDuration(period);
         Bandwidth bandwidth = refillStrategy.getBandwidth(limitRate, duration);
         return Bucket.builder()

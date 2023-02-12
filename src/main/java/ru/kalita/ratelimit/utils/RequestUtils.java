@@ -1,9 +1,13 @@
 package ru.kalita.ratelimit.utils;
 
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
+
 public class RequestUtils {
+
+    private RequestUtils() {
+    }
 
     private static final String UNKNOWN_ADDRESS = "unknown";
     private static final String COMMA = ",";

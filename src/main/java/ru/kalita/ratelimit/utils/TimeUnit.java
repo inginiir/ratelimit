@@ -24,11 +24,11 @@ public enum TimeUnit {
         }
     };
 
-    public static TimeUnit parseStrategy(String timeUnit) {
+    public static TimeUnit parseTimeUnit(String timeUnit) {
         return Arrays.stream(TimeUnit.values())
                 .filter(refillStrategy -> refillStrategy.name().equals(timeUnit))
                 .findFirst()
-                .orElse(MINUTES);
+                .orElseThrow(() -> new IllegalArgumentException("Введена неподдерживаемая единица времени: " + timeUnit));
     }
 
     public abstract Duration getDuration(long amount);
