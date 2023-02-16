@@ -1,5 +1,4 @@
 rate:
   limit: 5
   period: 10
-  timeunit: MINUTES
-  refill: GREED
+  timeunit: SECONDS
