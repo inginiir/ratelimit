@@ -7,20 +7,20 @@ public enum TimeUnit {
 
     SECONDS {
         @Override
-        public Duration getDuration(long amount) {
-            return Duration.ofSeconds(amount);
+        public long getPeriodNanos(long amount) {
+            return Duration.ofSeconds(amount).toNanos();
         }
     },
     MINUTES {
         @Override
-        public Duration getDuration(long amount) {
-            return Duration.ofMinutes(amount);
+        public long getPeriodNanos(long amount) {
+            return Duration.ofMinutes(amount).toNanos();
         }
     },
     HOURS {
         @Override
-        public Duration getDuration(long amount) {
-            return Duration.ofHours(amount);
+        public long getPeriodNanos(long amount) {
+            return Duration.ofHours(amount).toNanos();
         }
     };
 
@@ -28,9 +28,8 @@ public enum TimeUnit {
         return Arrays.stream(TimeUnit.values())
                 .filter(refillStrategy -> refillStrategy.name().equals(timeUnit))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Введена неподдерживаемая единица времени: " + timeUnit));
+                .orElseThrow(() -> new IllegalArgumentException("Specified incorrect TimeUnit property: " + timeUnit));
     }
 
-    public abstract Duration getDuration(long amount);
-
+    public abstract long getPeriodNanos(long amount);
 }

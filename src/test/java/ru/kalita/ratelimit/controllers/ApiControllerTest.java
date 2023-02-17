@@ -93,14 +93,14 @@ class ApiControllerTest {
 
     private void performGetRequest(String remoteAddress) throws Exception {
         Integer invokeCount = this.invokeCountCache.get(remoteAddress);
-        System.out.printf("Отправка запроса %d пользователем %s c %s%n", invokeCount, Thread.currentThread().getName(), remoteAddress);
+        System.out.printf("Sending request %d by user %s from %s%n", invokeCount, Thread.currentThread().getName(), remoteAddress);
         int status = mockMvc.perform(get(URL).with(request -> {
                     request.setRemoteAddr(remoteAddress);
                     return request;
                 }))
                 .andExpect(resolveExpectedStatus(invokeCount))
                 .andReturn().getResponse().getStatus();
-        System.out.printf("Вызов %d для %s завершился с кодом %d%n", invokeCount, remoteAddress, status);
+        System.out.printf("Request %d from %s finished with code %d%n", invokeCount, remoteAddress, status);
     }
 
     private ResultMatcher resolveExpectedStatus(Integer invokeCount) {
